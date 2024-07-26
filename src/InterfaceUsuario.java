@@ -6,7 +6,7 @@ public abstract class InterfaceUsuario {
     protected Banco banco;
     protected Scanner scanner = new Scanner(System.in);
 
-    public InterfaceUsuario(Banco banco) {
+    public InterfaceUsuario(Banco banco) { 
         this.banco = banco;
     }
 

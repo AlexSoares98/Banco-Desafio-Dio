@@ -6,7 +6,7 @@ public class Main {
         Cliente cliente1 = new Cliente("Maria"); // Conta 1 
         Cliente cliente2 = new Cliente("Arthur"); // Conta 2 
 
-        Conta conta1 = new ContaCorrente(cliente1);
+        Conta conta1 = new ContaCorrente(cliente1); 
         Conta conta2 = new ContaPoupanca(cliente2);
 
         banco.adicionarCliente(cliente1);
