@@ -1,9 +1,10 @@
-import java.util.ArrayList;
-import java.util.List;
+import java.util.HashSet;
+import java.util.Set;
+
 
 public class Banco {
-    private List<Conta> contas = new ArrayList<>();
-    private List<Cliente> clientes = new ArrayList<>();
+    private Set<Conta> contas = new HashSet<>();
+    private Set<Cliente> clientes = new HashSet<>();
  
     public void adicionarConta(Conta conta) {
         contas.add(conta);
@@ -13,11 +14,11 @@ public class Banco {
         clientes.add(cliente);
     }
 
-    public List<Conta> getContas() {
+    public Set<Conta> getContas() {
         return contas;
     }
 
-    public List<Cliente> getClientes() {
+    public Set<Cliente> getClientes() {
         return clientes;
     }
 }

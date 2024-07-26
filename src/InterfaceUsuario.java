@@ -15,10 +15,16 @@ public abstract class InterfaceUsuario {
         String nome = scanner.nextLine().trim();
         Cliente cliente = new Cliente(nome);
         banco.adicionarCliente(cliente);
-        System.out.println("\nOlá " + nome + ", bem-vindo!");
+        System.out.println("\nSua conta foi criada com sucesso!\n");
+        System.out.println("Olá " + nome + ", bem-vindo!\n");
 
         Conta conta = new ContaCorrente(cliente); 
         banco.adicionarConta(conta);
+
+        System.out.println("==== Dados da conta =====");
+        System.out.println("Número da Agência: " + conta.getAgencia());
+        System.out.println("Número da Conta: " + conta.getNumero());
+
 
         int opcao = -1;
         while (opcao != 0) {
