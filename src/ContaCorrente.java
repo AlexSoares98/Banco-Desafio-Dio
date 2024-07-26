@@ -1,5 +1,3 @@
-package Banco;
-
 public class ContaCorrente extends Conta {
 
     public ContaCorrente(Cliente cliente) {
@@ -7,7 +5,7 @@ public class ContaCorrente extends Conta {
     }
 
     public void imprimirExtrato() {
-        System.out.println("===== Extrato Conta Corrente =====");
         super.imprimirInfos();
     }
 }
+
