@@ -38,7 +38,6 @@ public abstract class InterfaceUsuario {
                         break;
                     case 2:
                         conta.transferir(0, conta);
-                        System.out.println("Saldo atual: " + conta.nf.format(conta.getSaldo()));
                         break;
                     case 3:
                         conta.depositar(0); 

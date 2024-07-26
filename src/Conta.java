@@ -20,9 +20,9 @@ public abstract class Conta implements FuncaoConta {
 
     public Conta(Cliente cliente) {
         this.agencia = AGENCIA_PADRAO;
-        this.numero = SEQUENCIAL++; 
+        this.numero = SEQUENCIAL++;
         this.cliente = cliente;
-        contas.add(this); 
+        contas.add(this);
     }
 
     @Override
@@ -34,21 +34,21 @@ public abstract class Conta implements FuncaoConta {
                 if (valor > 0 && valor <= saldo) {
                     saldo -= valor;
                     System.out.println("\nSaque no valor de " + nf.format(valor) + " realizado com sucesso!\n");
-                    break;   
+                    break;
                 } else {
                     System.out.println("\nValor de saque inválido, tente novamente!\n");
                     break;
                 }
             } catch (InputMismatchException e) {
                 System.out.println("\nEntrada inválida. Por favor, digite um número.\n");
-                scanner.next(); 
-                scanner.nextLine(); 
+                scanner.next();
+                scanner.nextLine();
             }
         }
     }
 
     @Override
-    public void depositar(double valor) {        
+    public void depositar(double valor) {
         while (true) {
             try {
                 System.out.print("Digite o valor que deseja depositar (Apenas números): ");
@@ -56,15 +56,15 @@ public abstract class Conta implements FuncaoConta {
                 if (valor > 0) {
                     saldo += valor;
                     System.out.println("\nDepósito no valor de " + nf.format(valor) + " realizado com sucesso!\n");
-                    break;   
+                    break;
                 } else {
                     System.out.println("\nValor de depósito inválido, tente novamente!\n");
                     break;
                 }
             } catch (InputMismatchException e) {
                 System.out.println("Entrada inválida. Por favor, digite um número.");
-                scanner.next(); 
-                scanner.nextLine(); 
+                scanner.next();
+                scanner.nextLine();
             }
         }
     }
@@ -77,6 +77,12 @@ public abstract class Conta implements FuncaoConta {
                 int numeroContaDestino = scanner.nextInt();
                 System.out.print("Digite a agência da conta destino: ");
                 int agenciaContaDestino = scanner.nextInt();
+                
+                if (this.numero == numeroContaDestino && this.agencia == agenciaContaDestino) {
+                    System.out.println("\nNão é possível transferir para a própria conta.");
+                    break;
+                }
+
                 contaDestino = findConta(numeroContaDestino, agenciaContaDestino);
                 if (contaDestino == null) {
                     System.out.println("\nConta destino não encontrada.");
@@ -97,15 +103,16 @@ public abstract class Conta implements FuncaoConta {
                 System.out.print("Digite o valor que deseja transferir (Apenas números): ");
                 valor = scanner.nextDouble();
                 if (valor <= 0) {
-                    System.out.println("\nO valor da transferência deve ser positivo!");
-                    break;
-                } else if (this.numero == numeroContaDestino && this.agencia == agenciaContaDestino) {
-                    System.out.println("\nNão é possível transferir para a própria conta.");
+                    System.out.println("O valor da transferência deve ser positivo!");
                     break;
                 } else if (this.saldo >= valor) {
                     System.out.println("\nTransferência no valor de " + nf.format(valor) + " realizada com sucesso!\n");
+                    System.out.println("===== Destinatário =====");
+                    System.out.println("Titular: " + contaDestino.cliente.getNome());
+                    System.out.println("Conta: " + contaDestino.getNumero());
+                    System.out.println("Agência: " + contaDestino.getAgencia());
                     this.saldo -= valor;
-                    contaDestino.receberTransferencia(valor); 
+                    contaDestino.receberTransferencia(valor);
                     break;
                 } else {
                     System.out.println("Saldo insuficiente para transferência!");
@@ -119,7 +126,6 @@ public abstract class Conta implements FuncaoConta {
         }
     }
 
-
     private void receberTransferencia(double valor) {
         this.saldo += valor;
     }
@@ -130,7 +136,7 @@ public abstract class Conta implements FuncaoConta {
                 return conta;
             }
         }
-        return null; 
+        return null;
     }
 
     public int getAgencia() {
@@ -148,8 +154,8 @@ public abstract class Conta implements FuncaoConta {
     protected void imprimirInfos() {
         System.out.println("\n===== Extrato =====\n");
         System.out.printf("Titular: %s%n", this.cliente.getNome());
-        System.out.printf("Agência: %d%n", this.agencia); 
-        System.out.printf("Conta: %d%n", this.numero);
+        System.out.printf("Agência: %d%n", this.agencia);
+        System.out.printf("Número: %d%n", this.numero);
         System.out.printf("Saldo: %s%n", nf.format(this.saldo));
     }
 }

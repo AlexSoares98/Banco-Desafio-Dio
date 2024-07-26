@@ -1,11 +1,10 @@
-
 public class Main {
     public static void main(String[] args) {
         Banco banco = new Banco();
 
-        // Usuários de exemplo
-        Cliente cliente1 = new Cliente("Maria");
-        Cliente cliente2 = new Cliente("Heitor");
+        // Usuários de exemplo e teste de transferência 
+        Cliente cliente1 = new Cliente("Maria"); // Conta 1 
+        Cliente cliente2 = new Cliente("Arthur"); // Conta 2 
 
         Conta conta1 = new ContaCorrente(cliente1);
         Conta conta2 = new ContaPoupanca(cliente2);
