@@ -155,7 +155,7 @@ public abstract class Conta implements FuncaoConta {
         System.out.println("\n===== Extrato =====\n");
         System.out.printf("Titular: %s%n", this.cliente.getNome());
         System.out.printf("Agência: %d%n", this.agencia);
-        System.out.printf("Número: %d%n", this.numero);
+        System.out.printf("Conta: %d%n", this.numero);
         System.out.printf("Saldo: %s%n", nf.format(this.saldo));
     }
 }
