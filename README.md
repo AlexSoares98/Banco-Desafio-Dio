@@ -1,18 +1,44 @@
-## Getting Started
+# Sistema Bancário em Java
 
-Welcome to the VS Code Java world. Here is a guideline to help you get started to write Java code in Visual Studio Code.
+Este projeto é um sistema bancário simples implementado em Java, utilizando conceitos de Programação Orientada a Objetos (POO). O sistema permite que os usuários realizem operações básicas como saque, depósito, transferência e consulta de extrato. 
 
-## Folder Structure
+## Estrutura do Projeto
 
-The workspace contains two folders by default, where:
+O projeto está organizado em várias classes, cada uma com responsabilidades específicas:
 
-- `src`: the folder to maintain sources
-- `lib`: the folder to maintain dependencies
+- **Banco**: Gerencia uma lista de contas e clientes.
+- **Cliente**: Representa um cliente do banco.
+- **Conta**: Classe abstrata que define métodos para operações bancárias e mantém informações sobre a conta.
+- **ContaCorrente** e **ContaPoupanca**: Subclasses de `Conta` que implementam tipos específicos de contas bancárias.
+- **FuncaoConta**: Interface que define as operações básicas para uma conta bancária.
+- **InterfaceUsuario**: Classe responsável pela interação com o usuário, permitindo que ele realize operações bancárias através do console.
 
-Meanwhile, the compiled output files will be generated in the `bin` folder by default.
+## Funcionalidades
 
-> If you want to customize the folder structure, open `.vscode/settings.json` and update the related settings there.
+- **Criar Conta**: O usuário pode criar uma conta fornecendo seu nome.
+- **Saque**: O usuário pode sacar um valor de sua conta, desde que tenha saldo suficiente.
+- **Depósito**: O usuário pode depositar um valor em sua conta.
+- **Transferência**: O usuário pode transferir um valor para outra conta, desde que tenha saldo suficiente e a conta de destino seja válida.
+- **Extrato**: O usuário pode consultar o extrato de sua conta.
+- **Proteção contra Transferência para a Própria Conta**: O sistema impede que um usuário transfira dinheiro para sua própria conta.
 
-## Dependency Management
+## Como Usar
 
-The `JAVA PROJECTS` view allows you to manage your dependencies. More details can be found [here](https://github.com/microsoft/vscode-java-dependency#manage-dependencies).
+### Compilação e Execução
+
+1. Certifique-se de ter o Java Development Kit (JDK) instalado.
+2. Compile o projeto utilizando o comando `javac`.
+3. Execute a aplicação utilizando o comando `java`.
+
+### Operações Disponíveis
+
+Após iniciar o sistema, digite seu nome para criar uma conta. Utilize os números correspondentes para realizar as operações desejadas:
+
+- `1`: Sacar
+- `2`: Transferir
+- `3`: Depositar
+- `4`: Consultar Extrato
+- `0`: Sair
+
+
+
