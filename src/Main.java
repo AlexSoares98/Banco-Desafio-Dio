@@ -3,8 +3,8 @@ public class Main {
         Banco banco = new Banco();
 
         // Usuários de exemplo e teste de transferência 
-        Cliente cliente1 = new Cliente("Maria"); // Conta 1 
-        Cliente cliente2 = new Cliente("Arthur"); // Conta 2 
+        Cliente cliente1 = new Cliente("Maria"); // Conta 1 - Agência 1 
+        Cliente cliente2 = new Cliente("Arthur"); // Conta 2 - Agência 1 
 
         Conta conta1 = new ContaCorrente(cliente1); 
         Conta conta2 = new ContaPoupanca(cliente2);
